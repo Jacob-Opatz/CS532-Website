@@ -22,6 +22,7 @@ repeat # 1 - 3 above for each team member (not yourself)
 
 **Sebastian Majsa** - Equipment subsystem UI Design - solely, Project Planning - Contributed, UI general design - Contributed
 
+**Joseph Vue** - Pharmacy Order Tracking UI Design - solely
 
 **James Stockwell** - Database - soley, Project Planning - contributed
 
