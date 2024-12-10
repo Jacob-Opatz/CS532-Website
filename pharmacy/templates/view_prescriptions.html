@@ -6,7 +6,6 @@
 
 {% block content %}
 <div class="container">
-    <button class="back-button">Back</button>
     <h1>View Prescription Orders</h1>
 
     <!-- Form for filtering prescriptions -->
@@ -30,32 +29,53 @@
     <!-- Display filtered prescription orders -->
     <div class="prescriptions-list">
         {% if prescriptions %}
-            <table>
-                <thead>
-                    <tr>
-                        <th>Medication</th>
-                        <th>Dosage</th>
-                        <th>Frequency</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for prescription in prescriptions %}
-                    <tr>
-                        <td>{{ prescription.medication }}</td>
-                        <td>{{ prescription.dosage }}</td>
-                        <td>{{ prescription.frequency }}</td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+        <table>
+            <thead>
+                <tr>
+                    <th>Medication</th>
+                    <th>Dosage</th>
+                    <th>Frequency</th>
+                    <th>Allergies</th>
+                    <th>Address</th>
+                    <th>Third Party Code</th>
+                    <th>Conditions</th>
+                    <th>Drug Quantity</th>
+                    <th>Drug Code</th>
+                    <th>Directions</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for prescription in prescriptions %}
+                <tr>
+                    <td>{{ prescription.medication }}</td>
+                    <td>{{ prescription.dosage }}</td>
+                    <td>{{ prescription.frequency }}</td>
+                    <td>{{ prescription.allergies }}</td>
+                    <td>{{ prescription.address }}</td>
+                    <td>{{ prescription.third_party_code }}</td>
+                    <td>{{ prescription.conditions }}</td>
+                    <td>{{ prescription.drug_quantity }}</td>
+                    <td>{{ prescription.drug_code }}</td>
+                    <td>{{ prescription.directions }}</td>
+                    <td>
+                        <!-- Generate Report for a Specific Prescription -->
+                        <button onclick="window.location.href='{% url 'generate_report' prescription.id %}'">
+                            Generate Report
+                        </button>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
         {% else %}
             <p>No prescriptions found.</p>
         {% endif %}
     </div>
 
-    <!-- Generate Report button -->
-    <button onclick="window.location.href='{% url 'generate_report' %}'" class="generate-report-button">
-        Generate Report
+    <!-- Generate Report for All Prescriptions -->
+    <button onclick="window.location.href='{% url 'generate_report_all' %}'" class="generate-report-button">
+        Generate Report for All
     </button>
 </div>
 {% endblock %}

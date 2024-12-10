@@ -14,9 +14,10 @@ class MedicationForm(forms.ModelForm):
 class PrescriptionForm(forms.ModelForm):
     class Meta:
         model = Prescription
-        fields = ['first_name', 'last_name', 'patient_id', 'age', 
-                  'medication', 'dosage', 'frequency', 
-                  'date_signed', 'signature']
+        fields = ['first_name', 'last_name', 'patient_id', 'age',
+                  'address', 'city', 'state', 'medication', 'dosage', 'frequency', 
+                  'drug_quantity', 'drug_code', 'directions',
+                  'date_signed', 'allergies', 'conditions', 'third_party_code', 'signature']
         widgets = {
             'medication': forms.Textarea(attrs={'rows': 3, 'placeholder': 'Enter medications'}),
             'dosage': forms.Textarea(attrs={'rows': 3, 'placeholder': 'Enter dosages'}),

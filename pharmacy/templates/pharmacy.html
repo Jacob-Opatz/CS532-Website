@@ -8,7 +8,6 @@
 <div class="container">
     <!-- Main Menu Section -->
     <div id="main-menu">
-        <button class="exit-button">Exit</button>
         <h1>Pharmacy Order Tracker</h1>
         <div class="buttons">
             <a href="#" onclick="showPrescriptions()" class="button">Prescriptions</a>
@@ -29,7 +28,6 @@
 
         <!-- Manage Medications Section -->
     <div id="medications-section" style="display: none;">
-        <button class="back-button" onclick="showMainMenu()">Back</button>
         <h1 class="header">Manage Medications</h1>
         <div class="buttons">
             <a href="{% url 'add_medication' %}" class="button">Add Medication</a>
